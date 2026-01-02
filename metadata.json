@@ -1,0 +1,5 @@
+{
+  "name": "todo",
+  "description": "A premium, 3D-styled task management application with glassmorphism effects, featuring task organization, recurring logic, and smart filtering.",
+  "requestFramePermissions": []
+}
