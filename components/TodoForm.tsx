@@ -31,16 +31,16 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onAdd, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#0f172a]/80 backdrop-blur-xl animate-in fade-in duration-300">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-[#0f172a]/90 backdrop-blur-2xl animate-in fade-in duration-300">
       <div 
-        className="three-d-card glass w-full max-w-2xl rounded-[1.5rem] p-6 md:p-10 border border-white/10 shadow-2xl animate-in slide-in-from-bottom-8 duration-500 overflow-y-auto max-h-[90vh]"
+        className="glass w-full max-w-2xl rounded-[2rem] p-8 md:p-10 border border-white/10 shadow-3xl animate-in slide-in-from-bottom-8 duration-500"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-3xl font-black text-white">Create Task</h2>
+          <h2 className="text-3xl font-black text-white">Create task</h2>
           <button 
             onClick={onClose}
-            className="p-2 hover:bg-white/5 rounded-full transition-colors text-slate-500 hover:text-white"
+            className="p-3 hover:bg-white/5 rounded-2xl transition-all text-slate-500 hover:text-white"
           >
             <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -50,33 +50,33 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onAdd, onClose }) => {
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
-            <label className="text-xs font-black text-[#22d3ee] uppercase tracking-widest ml-1">Task Name</label>
+            <label className="text-[10px] font-black text-[#22d3ee] uppercase tracking-[0.2em] ml-1">Task Name</label>
             <input
               autoFocus
               type="text"
               required
-              className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-6 py-4 text-lg outline-none focus:ring-2 focus:ring-[#6366f1]/50 transition-all placeholder:text-slate-600 text-white font-bold shadow-inner"
-              placeholder="What needs to be done?"
+              className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-lg outline-none focus:ring-2 focus:ring-[#6366f1]/50 transition-all text-white placeholder:text-slate-700 font-bold"
+              placeholder="What's next?"
               value={text}
               onChange={(e) => setText(e.target.value)}
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-xs font-black text-[#22d3ee] uppercase tracking-widest ml-1">Description</label>
+            <label className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em] ml-1">Description</label>
             <textarea
-              className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-6 py-4 text-base outline-none focus:ring-2 focus:ring-[#6366f1]/50 transition-all placeholder:text-slate-600 text-white font-medium shadow-inner min-h-[120px] resize-none"
-              placeholder="Add deeper context..."
+              className="w-full bg-white/5 border border-white/10 rounded-2xl px-6 py-4 text-base outline-none focus:ring-2 focus:ring-[#6366f1]/50 transition-all text-white placeholder:text-slate-700 font-medium min-h-[100px] resize-none"
+              placeholder="Add some depth to this task..."
               value={description}
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="space-y-2">
-              <label className="text-xs font-black text-slate-500 uppercase tracking-widest ml-1">Priority</label>
+              <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Priority</label>
               <select 
-                className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none text-white font-bold cursor-pointer hover:bg-slate-900/70 transition-all"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-3 text-xs outline-none text-slate-300 font-bold cursor-pointer hover:bg-white/10 transition-all"
                 value={priority}
                 onChange={(e) => setPriority(e.target.value as Priority)}
               >
@@ -85,9 +85,9 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onAdd, onClose }) => {
             </div>
             
             <div className="space-y-2">
-              <label className="text-xs font-black text-slate-500 uppercase tracking-widest ml-1">Category</label>
+              <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Category</label>
               <select 
-                className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none text-white font-bold cursor-pointer hover:bg-slate-900/70 transition-all"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-3 text-xs outline-none text-slate-300 font-bold cursor-pointer hover:bg-white/10 transition-all"
                 value={category}
                 onChange={(e) => setCategory(e.target.value as Category)}
               >
@@ -96,9 +96,9 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onAdd, onClose }) => {
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-black text-slate-500 uppercase tracking-widest ml-1">Recurrence</label>
+              <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Repeat</label>
               <select 
-                className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none text-white font-bold cursor-pointer hover:bg-slate-900/70 transition-all"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-3 text-xs outline-none text-slate-300 font-bold cursor-pointer hover:bg-white/10 transition-all"
                 value={recurrence}
                 onChange={(e) => setRecurrence(e.target.value as Recurrence)}
               >
@@ -107,29 +107,29 @@ export const TodoForm: React.FC<TodoFormProps> = ({ onAdd, onClose }) => {
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-black text-slate-500 uppercase tracking-widest ml-1">Due Date</label>
+              <label className="text-[10px] font-black text-slate-500 uppercase tracking-widest ml-1">Deadline</label>
               <input 
                 type="date"
-                className="w-full bg-slate-900/50 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none text-white font-bold cursor-pointer hover:bg-slate-900/70 transition-all [color-scheme:dark]"
+                className="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-3 text-xs outline-none text-slate-300 font-bold cursor-pointer hover:bg-white/10 transition-all"
                 value={dueDate}
                 onChange={(e) => setDueDate(e.target.value)}
               />
             </div>
           </div>
 
-          <div className="flex gap-4 pt-4">
+          <div className="flex gap-4 pt-6">
             <button 
               type="button"
               onClick={onClose}
-              className="flex-1 bg-white/5 text-slate-400 font-bold py-4 rounded-xl hover:bg-white/10 transition-all active:scale-95 border border-white/5"
+              className="flex-1 glass bg-white/5 text-slate-500 font-bold py-4 rounded-2xl hover:text-white transition-all active:scale-95 border-none"
             >
               Cancel
             </button>
             <button 
               type="submit"
-              className="flex-[2] bg-[#6366f1] text-white font-bold py-4 rounded-xl shadow-lg shadow-[#6366f1]/20 hover:bg-[#4f46e5] transition-all active:scale-95"
+              className="flex-[2] bg-[#6366f1] text-white font-black py-4 rounded-2xl shadow-2xl shadow-indigo-900/40 hover:bg-[#4f46e5] transition-all active:scale-95"
             >
-              Create Task
+              Add Focus Item
             </button>
           </div>
         </form>
